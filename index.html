@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JuSpecula · Canadian law, legal tech and the legal market</title>
+<meta name="description" content="Canadian law explained with numbers, cases, lawyers and tools: legal market pay and hiring data, case explainers, LTB order analysis and free tools for law students.">
+<meta property="og:title" content="JuSpecula · Canadian law, legal tech and the legal market">
+<meta property="og:description" content="Legal market data, case explainers and free tools for Canadian law students, with every number sourced.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://juspecula.com/">
+<link rel="canonical" href="https://juspecula.com/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231d2bd8'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-weight='700' font-size='20' fill='white' text-anchor='middle'%3EJ%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* VOICE work: a law-report index for students, sober and exact
+   IDEA a law reporter's front matter: headnote, holding, sources
+   PICTURE dumbbell chart, first-year to senior pay, Bay Street vs New York
+   COLOUR white, ink #14110f, ultramarine #1d2bd8, cool grey; night #0d0e18
+   TYPE Spectral 700 display + Inter text
+   LAYOUT nav strip, finding across top, full-width chart, figures row; stacks under 600 */
+:root{color-scheme:light dark;--bg:light-dark(#ffffff,#0d0e18);--ink:light-dark(#14110f,#ecebf3);--mute:light-dark(#5d5f6b,#a3a5b6);--line:light-dark(#dfe1e8,#262838);--blue:light-dark(#1d2bd8,#8d96ff);--soft:light-dark(#eef0ff,#161a3a);--grey:light-dark(#9aa0ae,#5e6278)}
+:root[data-theme=light]{color-scheme:light}
+:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:16px/1.55 Inter,system-ui,sans-serif;overflow-x:clip}
+a{color:var(--blue)}
+.wrap{max-width:1240px;margin:0 auto}
+.band{padding-block:clamp(28px,4vw,64px);padding-inline:max(5vw,16px)}
+nav{display:flex;flex-wrap:wrap;align-items:center;gap:8px 24px;padding:14px max(5vw,16px);border-bottom:1px solid var(--line)}
+.logo{font:700 26px/1 Spectral,Georgia,serif;letter-spacing:-.02em;margin-right:auto;color:var(--ink);text-decoration:none}
+.logo span{color:var(--blue)}
+nav a.l{color:var(--ink);text-decoration:none;font-weight:500;padding:10px 0}
+nav a.l:hover,nav a.l:focus-visible{color:var(--blue)}
+h1,h2{font-family:Spectral,Georgia,serif;font-weight:700;letter-spacing:-.02em;line-height:1.05;text-wrap:balance;margin:0}
+h1{font-size:clamp(32px,4.6vw,52px);max-width:22ch}
+h2{font-size:clamp(28px,3.4vw,40px)}
+.dek{color:var(--mute);max-width:62ch;margin:14px 0 0}
+.hero{display:grid;gap:28px}
+.fig{position:relative;min-height:300px;border-top:2px solid var(--ink);padding-top:8px}
+.fig>svg{position:absolute;inset:8px 0 0;width:100%;height:calc(100% - 8px)}
+svg text{font:14px Inter,sans-serif;fill:var(--ink);paint-order:stroke;stroke:var(--bg);stroke-width:4px}
+.key{display:flex;flex-wrap:wrap;gap:6px 20px;font-size:14px;color:var(--mute)}
+.key i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:middle}
+.figs{display:grid;grid-template-columns:repeat(auto-fit,minmax(13em,1fr));gap:0;border-top:1px solid var(--line)}
+.figs div{padding:18px 18px 18px 0;border-bottom:1px solid var(--line)}
+.figs b{display:block;font:700 clamp(28px,3.2vw,38px)/1.1 Spectral,Georgia,serif;white-space:nowrap}
+.figs span{font-size:14px;color:var(--mute)}
+.blue{background:var(--soft)}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:clamp(24px,4vw,56px);align-items:start}
+.rows{display:grid;gap:6px;margin-top:4px}
+.row{display:grid;grid-template-columns:7.5em minmax(0,1fr) 4.2em;align-items:center;gap:10px;font-size:15px}
+.bar{height:18px;background:var(--grey);border-radius:2px}
+.row.hi .bar{background:var(--blue)}
+.row.hi{font-weight:600}
+.v{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.src{font-size:13px;color:var(--mute);margin-top:12px}
+.card{border:1px solid var(--line);background:var(--soft);border-radius:6px;padding:clamp(20px,3vw,32px)}
+.steps{list-style:none;padding:0;margin:18px 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.steps li{border-top:2px solid var(--blue);padding-top:10px}
+.steps b{display:block;font-family:Spectral,Georgia,serif;font-size:20px}
+.steps span{font-size:14px;color:var(--mute)}
+.btn{display:inline-flex;align-items:center;min-height:44px;padding:0 20px;background:var(--blue);color:#fff;border-radius:4px;text-decoration:none;font-weight:600}
+.btn:focus-visible,nav a:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.btn.ghost{background:transparent;color:var(--blue);border:1px solid var(--blue);margin-left:8px}
+.case{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px 24px;padding:18px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.cite{font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--mute);font-size:14px}
+.tag{font-size:13px;color:var(--blue);font-weight:600}
+.case h3{font:700 22px/1.2 Spectral,Georgia,serif;margin:2px 0 4px}
+.case p{margin:0;color:var(--mute)}
+dl{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:8px 20px;margin:0;font-size:15px}
+dt{font-weight:600}
+dd{margin:0;color:var(--mute)}
+footer{border-top:1px solid var(--line);font-size:14px;color:var(--mute)}
+nav{position:sticky;top:0;z-index:5;background:var(--bg)}
+nav a.l{border-bottom:2px solid transparent}
+nav a.l.on{color:var(--blue);border-bottom-color:var(--blue)}
+section{scroll-margin-top:64px}
+.intro{border-bottom:1px solid var(--line);padding-block:clamp(24px,3vw,40px)}
+.lede{font:500 clamp(24px,3vw,34px)/1.2 Spectral,Georgia,serif;letter-spacing:-.01em;margin:0 0 22px;max-width:30ch;text-wrap:balance}
+.lede b{color:var(--blue);font-weight:700}
+.toc{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(11em,1fr));gap:12px 20px}
+.toc a{display:block;text-decoration:none;color:var(--ink);border-top:3px solid var(--ink);padding:10px 0 4px;min-height:44px}
+.toc a:hover b,.toc a:focus-visible b{color:var(--blue)}
+.toc b{display:block;font:700 20px/1.2 Spectral,Georgia,serif}
+.toc span{font-size:14px;color:var(--mute)}
+.sh{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:baseline;gap:6px 24px;border-top:3px solid var(--ink);padding-top:12px;margin-bottom:clamp(24px,3vw,40px)}
+.sh p{margin:0;color:var(--mute);font-size:15px}
+.ct{font-size:13px;color:var(--blue);font-weight:600;white-space:nowrap}
+.ch{font-family:Spectral,Georgia,serif;font-weight:700;letter-spacing:-.02em;line-height:1.1;text-wrap:balance;margin:0;font-size:clamp(26px,3.4vw,40px);max-width:24ch}
+.sub{margin-top:clamp(40px,5vw,64px);padding-top:clamp(24px,3vw,36px);border-top:1px solid var(--line)}
+.ep{font-size:14px;font-weight:600;color:var(--blue);margin:0 0 14px}
+.ep.gap{margin-top:clamp(48px,6vw,80px);padding-top:clamp(24px,3vw,36px);border-top:3px solid var(--ink)}
+.row.w{grid-template-columns:5.5em minmax(0,1fr) 5em}
+.row.b .bar{background:var(--blue)}
+.row.pair{margin-bottom:10px}
+.yr.tall{height:170px}
+.yr .g i{background:var(--grey)}
+.case.nt{border-top:0}
+.case .src{margin-top:8px}
+.lg{list-style:none;margin:0;padding:0;border-top:1px solid var(--line);max-width:860px}
+.lg li{display:grid;grid-template-columns:8em minmax(0,1fr);gap:8px 24px;padding:14px 0;border-bottom:1px solid var(--line)}
+.lg time{color:var(--mute);font-size:14px;white-space:nowrap;font-variant-numeric:tabular-nums}
+@media(max-width:600px){.lg li{grid-template-columns:minmax(0,1fr);gap:2px}.row.w{grid-template-columns:4.6em minmax(0,1fr) 4.6em}.yr div{font-size:11px}}
+@media(min-width:761px){.toc{grid-template-columns:repeat(3,minmax(0,1fr));gap:28px 32px}}
+@media(max-width:760px){.toc{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){section{scroll-margin-top:120px}nav{gap:0 16px}.logo{flex-basis:100%}nav a.l{font-size:15px}}
+.mihead{display:grid;grid-template-columns:auto minmax(0,1fr);gap:22px;align-items:center}
+.iv{width:104px;height:104px;border-radius:50%;overflow:hidden;background:#fff}
+.iv svg{display:block;width:100%;height:100%}
+.iv-bg{fill:#fff}.iv-coat{fill:#1b2470}.iv-lapel{fill:#141b57}.iv-shirt{fill:#fff}.iv-tie{fill:#1d2bd8}
+.iv-skin{fill:#e8c3a3}.iv-skin-shade{fill:#d7aa86}.iv-hair{fill:#2a2420}.iv-ink{fill:#1a1614}
+.iv-glasses{stroke:#1a1614;stroke-width:2}.iv-brow{stroke:#2a2420;stroke-width:2.4;stroke-linecap:round}
+.iv-nose{stroke:#c08f6c;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.iv-lips{stroke:#8c4b3c;stroke-width:2;stroke-linecap:round}.iv-open{fill:#8c4b3c;opacity:0}
+.iv-eyes{transform-box:fill-box;transform-origin:center}
+@media(prefers-reduced-motion:no-preference){.iv-eyes{animation:blink 5s infinite}}
+@keyframes blink{0%,96%,100%{transform:scaleY(1)}98%{transform:scaleY(.1)}}
+.ways{width:100%;border-collapse:collapse;font-size:15px;margin-top:6px}
+.ways th{text-align:left;color:var(--mute);font-weight:500;font-size:14px;padding:8px 12px 8px 0;border-bottom:2px solid var(--ink)}
+.ways td{padding:12px 12px 12px 0;border-bottom:1px solid var(--line);vertical-align:top}
+.ways td:nth-child(2){font-weight:600;white-space:nowrap}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.btn.ghost2{background:transparent;color:var(--blue);border:1px solid var(--blue)}
+@media(max-width:600px){.mihead{grid-template-columns:minmax(0,1fr)}.iv{width:88px;height:88px}.ways td:nth-child(2){white-space:normal}}
+.view[hidden]{display:none}
+.view{min-height:calc(100svh - 140px)}
+.intro{border-bottom:0}
+.toc em{display:block;font-style:normal;font-size:14px;font-weight:600;color:var(--blue);margin-top:18px}
+.toc a{padding:14px 0 6px}
+.lede{margin-bottom:clamp(28px,5vw,64px)}
+.finder{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:clamp(20px,3vw,40px);align-items:start}
+.lab{display:block;font-size:14px;font-weight:600;margin:0 0 6px}
+.fl input,.fl select{width:100%;font:16px Inter,sans-serif;min-height:44px;padding:0 12px;border:1px solid var(--grey);border-radius:4px;background:var(--bg);color:var(--ink);margin-bottom:14px}
+.fl input:focus-visible,.fl select:focus-visible,.ll button:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.ll{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.ll button{display:block;width:100%;text-align:left;background:none;border:0;border-bottom:1px solid var(--line);padding:12px 4px;font:15px Inter,sans-serif;color:var(--ink);cursor:pointer;min-height:44px}
+.ll button b{display:block;font-weight:600}
+.ll button span{font-size:14px;color:var(--mute)}
+.ll button[aria-pressed=true]{background:var(--soft)}
+.ll button[aria-pressed=true] b{color:var(--blue)}
+.ll .none{padding:14px 4px;color:var(--mute)}
+.ph{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 20px;align-items:baseline}
+.ph p{margin:4px 0 0;color:var(--mute)}
+.big{font:700 clamp(30px,4vw,44px)/1 Spectral,Georgia,serif;white-space:nowrap}
+.pg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:22px}
+.yr{display:flex;align-items:flex-end;gap:6px;height:110px;border-bottom:1px solid var(--ink)}
+.yr div{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%;font-size:13px}
+.yr i{display:block;width:100%;background:var(--blue);border-radius:2px 2px 0 0}
+.yl{display:flex;gap:6px;font-size:13px;color:var(--mute)}
+.yl span{flex:1;text-align:center}
+.h4{font-size:14px;font-weight:600;margin:0 0 10px}
+.rec{list-style:none;padding:0;margin:20px 0 0;border-top:1px solid var(--line)}
+.rec li{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid var(--line);font-size:15px}
+.rec li span{color:var(--mute);white-space:nowrap;font-variant-numeric:tabular-nums}
+@media(max-width:760px){.finder,.pg{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:760px){.two{grid-template-columns:minmax(0,1fr)}.sh{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:600px){.steps{grid-template-columns:minmax(0,1fr)}.row{grid-template-columns:6.5em minmax(0,1fr) 3.8em;font-size:14px}dl{grid-template-columns:minmax(0,1fr)}dd{margin-bottom:8px}.case{grid-template-columns:minmax(0,1fr)}.btn.ghost{margin:10px 0 0}}
+@media(prefers-reduced-motion:no-preference){.dot{transition:r .3s}}
+
+.tree{position:relative;border-top:2px solid var(--ink);padding-top:8px;margin-top:24px}
+.tree svg{display:block;width:100%;height:auto}
+@media(max-width:600px){.tree{overflow-x:auto}.tree svg{min-width:640px}}
+.tree text{font:14px Inter,sans-serif;fill:var(--ink)}
+.tree .q{fill:var(--mute);font-size:12px}
+.tree rect{fill:var(--bg);stroke:var(--grey);stroke-width:1.25}
+.tree rect.hi{fill:var(--soft);stroke:var(--blue);stroke-width:2}
+.tree path{fill:none;stroke:var(--grey);stroke-width:1.25}
+.quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(16em,1fr));gap:16px;margin-top:8px}
+.quote{border-top:2px solid var(--blue);padding-top:12px}
+.quote b{display:block;font:700 19px/1.25 Spectral,Georgia,serif;margin-bottom:8px}
+.quote blockquote{margin:0 0 8px;color:var(--mute);font-size:15px}
+.quote a{font-size:13px;font-variant-numeric:tabular-nums}
+table.fl{width:100%;border-collapse:collapse;font-size:15px}
+table.fl th{text-align:left;color:var(--mute);font-weight:500;font-size:14px;padding:8px 12px 8px 0;border-bottom:2px solid var(--ink)}
+table.fl td{padding:10px 12px 10px 0;border-bottom:1px solid var(--line)}
+table.fl td.n{text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
+.fig.zc{min-height:440px}
+.fig.zc a:focus-visible circle{stroke:var(--ink);stroke-width:3}
+.fig.zc circle{cursor:pointer}
+@media(max-width:600px){.fig.zc{min-height:620px}}
+details.all{margin-top:20px}
+details.all summary{cursor:pointer;font-weight:600;min-height:44px;display:flex;align-items:center}
+details.all summary:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+td.d{white-space:nowrap;font-variant-numeric:tabular-nums;color:var(--mute)}
+.stack td.c{white-space:nowrap;font-variant-numeric:tabular-nums}
+@media(max-width:600px){table{font-size:13px}.stack thead{display:none}.stack tr{display:grid;padding-block:10px;border-bottom:1px solid var(--line)}.stack td{display:flow-root;border:0;padding:3px 0;padding-inline-start:8em;text-align:start}.stack td::before{content:attr(data-l);float:inline-start;width:7.5em;margin-inline-start:-8em;white-space:normal;color:var(--mute)}.stack td:empty{display:none}}
+.toc b .pill{font-family:Inter,sans-serif;color:var(--blue);font-size:12px;display:inline-block}
+.pill{display:inline-block;font-size:12px;font-weight:600;color:var(--blue);border:1px solid var(--blue);border-radius:999px;padding:1px 8px;margin-left:6px;vertical-align:2px}
+</style>
+</head>
+<body>
+<nav aria-label="Main">
+  <a class="logo" href="#home"><span>Ju</span>Specula<span>.</span></a>
+  <a class="l" href="#data">Data</a>
+  <a class="l" href="#cases">Cases</a>
+  <a class="l" href="#lawyers">Lawyers</a>
+  <a class="l" href="#ltb">LTB</a>
+  <a class="l" href="#tools">Tools</a>
+  <a class="l" href="#method">Method</a>
+  <a class="l" href="#log">Log</a>
+</nav>
+
+<main id="top">
+<section class="band intro view" id="home">
+  <div class="wrap">
+    <p class="lede">Canadian law, explained with <b>numbers</b>, <b>cases</b>, <b>lawyers</b> and <b>tools</b>.</p>
+    <ul class="toc">
+      <li><a href="#data"><b>Data</b><span>What the legal market pays, hires and costs</span><em>3 episodes: pay, hiring, cost</em></a></li>
+      <li><a href="#cases"><b>Cases</b><span>One case in ninety seconds, animated</span><em>New: where Zhang v. Chen was cited</em></a></li>
+      <li><a href="#lawyers"><b>Lawyers <span class="pill">Preview</span></b><span>Who has argued what, from public decisions</span><em>Sample data, made-up names</em></a></li>
+      <li><a href="#ltb"><b>LTB <span class="pill">Preview</span></b><span>How Landlord and Tenant Board cases end, from published orders</span><em>Real orders, sample counts</em></a></li>
+      <li><a href="#tools"><b>Tools</b><span>Free tools for applications and interviews</span><em>Housekeeper · Mock Interviewer</em></a></li>
+      <li><a href="#method"><b>Method</b><span>Where every number comes from</span><em>Sources and conversions</em></a></li>
+      <li><a href="#log"><b>Log</b><span>What changed, and what we are building</span><em>Updated 27 Nov 2026</em></a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="band view" id="data">
+  <div class="wrap">
+  <div class="sh"><h2>Data</h2><p>Canadian Legal Market, by the Numbers. Charts from each episode, with sources.</p><span class="ct">3 episodes</span></div>
+  <p class="ep">Episode 1 · Pay</p>
+  <div class="hero">
+    <div>
+      <h3 class="ch">A first-year in New York earns more than a seventh-year on Bay Street.</h3>
+      <p class="dek">Base salary at large firms, converted to Canadian dollars.</p>
+    </div>
+    <div>
+      <div class="key"><span><i style="background:var(--grey)"></i>Year 1</span><span><i style="background:var(--blue)"></i>Senior associate</span></div>
+      <div class="fig" id="dumb" role="img" aria-label="Bay Street base pay rises from 135,000 in year 1 to 275,000 in year 7. New York Cravath scale runs from 315,000 to 588,000 Canadian dollars."></div>
+      <p class="src">Bay Street year 1: Globe and Mail (2025). Bay Street year 7: Lateral Law Report. New York: Cravath published scale, US$225K–420K, at 1 USD = 1.40 CAD (26 Oct 2026); top of scale is the most senior associate class.</p>
+    </div>
+    <div class="figs">
+      <div><b>$59.76</b><span>Median hourly wage, lawyers, Canada (Job Bank)</span></div>
+      <div><b>86%</b><span>Bay Street hireback, excluding students who opted out (Precedent 2026)</span></div>
+      <div><b>$1,550</b><span>Median weekly articling pay, Ontario (NALP 2025)</span></div>
+      <div><b>US$4,327</b><span>Weekly summer associate pay, Cravath</span></div>
+    </div>
+  </div>
+  <div class="two sub">
+    <div>
+      <h3 class="ch">Alberta lawyers earn the highest median wage in Canada.</h3>
+      <p class="dek">Median hourly wage for lawyers (NOC 41101) by province, all practice settings. Ontario’s median is about $136,000 a year.</p>
+      <p class="src">Source: Job Bank, updated Nov 2025, 2023–24 data. Annual figure assumes 2,080 paid hours.</p>
+    </div>
+    <div class="rows" id="prov"></div>
+  </div>
+
+  <p class="ep gap">Episode 2 · Hiring</p>
+  <div class="two">
+    <div>
+      <h3 class="ch">At least one in five students at nine law schools got a Toronto 2L summer job.</h3>
+      <p class="dek">Students hired for summer 2026 as a share of each school’s second-year class.</p>
+      <p class="src">Source: Ultra Vires 2026 recruit survey. 64 of 120 employers replied, so counts are minimums. Most McGill students recruit in Montreal, which lowers its Toronto share.</p>
+    </div>
+    <div class="rows" id="schools"></div>
+  </div>
+  <div class="two sub">
+    <div>
+      <h3 class="ch">Toronto firms hire about 50% more first-year students than before 2022.</h3>
+      <p class="dek">1L summer hires averaged 52 a year from 2013 to 2021, and 79 a year from 2022 to 2026.</p>
+      <p class="src">Source: Ultra Vires recruit surveys, by summer year. 2026 covers 12 of 19 firms, so it is a minimum.</p>
+    </div>
+    <div>
+      <div class="yr tall" id="onel" role="img" aria-label="Toronto 1L summer hires each year from 2013 to 2026, rising from 44 to 80."></div>
+      <div class="yl" id="onely"></div>
+    </div>
+  </div>
+
+  <p class="ep gap">Episode 3 · Cost</p>
+  <div class="two">
+    <div>
+      <h3 class="ch">International students pay about two to three and a half times the domestic tuition.</h3>
+      <p class="dek">JD tuition for one year, in Canadian dollars.</p>
+      <div class="key"><span><i style="background:var(--grey)"></i>Domestic</span><span><i style="background:var(--blue)"></i>International</span></div>
+      <p class="src">Source: each school’s website, 2026–27; Queen’s is 2025–26. Domestic is the in-province rate. Calgary is approximate and includes fees; the others exclude ancillary fees.</p>
+    </div>
+    <div class="rows" id="tuition"></div>
+  </div>
+  <div class="figs" style="margin-top:28px">
+    <div><b>$5,055</b><span>Ontario licensing fees before tax, 2026–27 (Law Society of Ontario)</span></div>
+    <div><b>$865</b><span>Each of the two Ontario licensing exams</span></div>
+    <div><b>$2,034</b><span>Average two-bedroom rent a month, Toronto (CMHC 2025)</span></div>
+  </div>
+  </div>
+</section>
+
+<section class="band view" id="cases">
+  <div class="wrap">
+    <div class="sh"><h2>Cases</h2><p>Legal Reels. Each episode lands here with its citation and the takeaway.</p><span class="ct">1 published · 1 in production</span></div>
+    <div class="case">
+      <div>
+        <span class="tag">Published · 27 Oct 2026</span>
+        <h3>Moffatt v. Air Canada</h3>
+        <p>An airline’s chatbot gave a customer wrong information about bereavement fares. The airline argued the chatbot was responsible for its own words. The tribunal disagreed and held the airline liable.</p>
+        <p class="src">A small-claims tribunal decision. It is persuasive, not binding on courts.</p>
+      </div>
+      <div class="cite">2024 BCCRT 149</div>
+    </div>
+    <div class="case nt">
+      <div>
+        <span class="tag">In production · citation map below</span>
+        <h3>Zhang v. Chen</h3>
+        <p>A lawyer in a BC courtroom cites cases that ChatGPT made up. What the court did about it.</p>
+      </div>
+      <div class="cite">2024 BCSC 285</div>
+    </div>
+
+    <div class="sub" id="zc-block">
+      <p class="ep">Where the ruling went next</p>
+      <div class="two">
+        <div>
+          <h3 class="ch">Two years on, 25 decisions have cited Zhang v. Chen on fake case law. 21 of them are outside BC.</h3>
+          <p class="dek">Every decision in the A2AJ citation index that cites 2024 BCSC 285, by court or tribunal and date. The first to cite it was not a BC court but the Trademarks Opposition Board, six months after the ruling.</p>
+        </div>
+        <div class="figs" id="zc-figs"></div>
+      </div>
+      <div class="key" style="margin-top:28px"><span><i style="background:var(--blue)"></i>Cites it on fabricated or AI-generated authorities</span><span><i style="background:var(--grey)"></i>Cites it for something else</span></div>
+      <div class="fig zc" id="zc" role="img" aria-label="Timeline from February 2024 to November 2026 of 26 decisions citing Zhang v. Chen, grouped by court or tribunal. Trademarks Opposition Board 9, Federal Court 8, BC Supreme Court 4, and one each for the BC Court of Appeal, the federal public sector labour board, the Canada Industrial Relations Board, the Law Society Tribunal and the Landlord and Tenant Board."></div>
+      <p class="src">Source: A2AJ Canadian Legal Data citation index, checked 26 Nov 2026: 26 decisions cite 2024 BCSC 285. We read the passage around each citation: 25 concern fabricated or AI-generated authorities; one (2025 BCSC 2134) cites the ruling's family-law costs analysis. A2AJ does not cover every court (Ontario Superior Court decisions are not in it), so these counts are minimums. Zhang v. Chen is a family case; this map shows only how later decisions cite it. Landlord and Tenant Board parties are not named.</p>
+      <details class="all">
+        <summary>All 26 decisions, with links</summary>
+        <table class="fl stack"><thead><tr><th>Date</th><th>Court or tribunal</th><th>Decision</th><th>Citation</th></tr></thead><tbody id="zc-list"></tbody></table>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="band view" id="lawyers">
+  <div class="wrap">
+    <div class="sh"><h2>Lawyers</h2><p>Know your lawyer: who has actually argued this kind of case, built from public court decisions.</p><span class="ct">Prototype · sample data</span></div>
+    <div class="finder">
+      <div class="fl">
+        <label for="lq" class="lab">Search name or firm</label>
+        <input id="lq" type="search" placeholder="e.g. Example LLP" autocomplete="off">
+        <label for="la" class="lab">Area of law</label>
+        <select id="la"><option value="">All areas</option></select>
+        <ul class="ll" id="ll"></ul>
+      </div>
+      <article class="prof card" id="prof" aria-live="polite"></article>
+    </div>
+    <p class="src">Sample profiles with made-up names and placeholder citations, to show the layout. Live profiles will be built from published Ontario and federal decisions.</p>
+    <div class="two sub">
+      <div><h3 class="ch">What a profile shows, and what it does not.</h3></div>
+      <dl>
+        <dt>Shows</dt><dd>Decisions where the lawyer appears as counsel, by year, court and area of law, with links to each decision.</dd>
+        <dt>Does not show</dt><dd>Win rates or ratings. Outcomes depend on the facts and the client, so a score would mislead.</dd>
+        <dt>Licence</dt><dd>A profile is not proof of a licence. Check the Law Society of Ontario directory before you hire.</dd>
+        <dt>Corrections</dt><dd>Lawyers can ask us to fix or update anything on their profile.</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="band view" id="ltb">
+  <div class="wrap">
+    <div class="sh"><h2>LTB</h2><p>Ontario's Landlord and Tenant Board, read from its published orders.</p><span class="ct">Prototype · sample counts</span></div>
+    <div class="two">
+      <div>
+        <h3 class="ch">Two in three rent cases in our sample were filed by a company or public body.</h3>
+        <p class="dek">Of 50 eviction applications for unpaid rent decided on 31 July 2026, 33 were brought by a corporation, a REIT, a housing provider or a municipality.</p>
+        <p class="src">Source: LTB orders via A2AJ Canadian Legal Data (Open Government Licence – Ontario). One day, 50 orders: an illustration, not an estimate. Full counts come from all <span id="ltb-total"></span> orders.</p>
+      </div>
+      <div class="figs" id="ltb-figs"></div>
+    </div>
+
+    <div class="sub">
+      <p class="ep">How a rent case moves</p>
+      <h3 class="ch">An eviction for unpaid rent has to clear five questions.</h3>
+      <p class="dek">Each order answers them in the same fixed sentences, which is what makes them countable. Every branch gets its count once the full dataset has been processed.</p>
+      <div class="tree" role="img" aria-label="Decision tree for an L1 application: N4 valid, arrears paid, section 82 issues, section 83(3) serious breach, then section 83(1) discretion with four outcomes.">
+        <svg viewBox="0 40 760 590" aria-hidden="true">
+          <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" style="fill:var(--grey);stroke:none"/></marker></defs>
+          <path d="M250 104V136" marker-end="url(#ar)"/><path d="M250 184V216" marker-end="url(#ar)"/><path d="M250 264V300" marker-end="url(#ar)"/><path d="M250 356V392" marker-end="url(#ar)"/><path d="M250 440V472" marker-end="url(#ar)"/>
+          <path d="M400 160H480" marker-end="url(#ar)"/><path d="M400 240H480" marker-end="url(#ar)"/><path d="M400 416H480" marker-end="url(#ar)"/>
+          <path d="M250 520V546M107 546H653"/><path d="M107 546V568" marker-end="url(#ar)"/><path d="M289 546V568" marker-end="url(#ar)"/><path d="M471 546V568" marker-end="url(#ar)"/><path d="M653 546V568" marker-end="url(#ar)"/>
+          <rect x="100" y="56" width="300" height="48" rx="6"/><text x="250" y="85" text-anchor="middle">Landlord files an L1 application</text>
+          <rect x="100" y="136" width="300" height="48" rx="6"/><text x="250" y="165" text-anchor="middle">Was the N4 notice valid?</text>
+          <rect x="100" y="216" width="300" height="48" rx="6"/><text x="250" y="245" text-anchor="middle">Did the tenant pay before the deadline?</text>
+          <rect x="100" y="300" width="300" height="56" rx="6"/><text x="250" y="324" text-anchor="middle">Repair issues raised (s. 82)?</text><text class="q" x="250" y="344" text-anchor="middle">Only if disclosed in writing beforehand</text>
+          <rect x="100" y="392" width="300" height="48" rx="6"/><text x="250" y="421" text-anchor="middle">Landlord in serious breach (s. 83(3))?</text>
+          <rect class="hi" x="100" y="472" width="300" height="48" rx="6"/><text x="250" y="501" text-anchor="middle" style="font-weight:600">Member's discretion (s. 83(1))</text>
+          <rect x="480" y="136" width="256" height="48" rx="6"/><text x="608" y="165" text-anchor="middle">Application dismissed</text>
+          <rect x="480" y="216" width="256" height="48" rx="6"/><text x="608" y="245" text-anchor="middle">Notice void, tenancy continues</text>
+          <rect x="480" y="392" width="256" height="48" rx="6"/><text x="608" y="421" text-anchor="middle">Eviction must be refused</text>
+          <text class="q" x="440" y="152" text-anchor="middle">no</text><text class="q" x="440" y="232" text-anchor="middle">yes</text><text class="q" x="440" y="408" text-anchor="middle">yes</text>
+          <text class="q" x="260" y="206">yes</text><text class="q" x="260" y="290">no</text><text class="q" x="260" y="462">no</text>
+          <rect x="24" y="568" width="166" height="48" rx="6"/><text x="107" y="597" text-anchor="middle">Eviction refused</text>
+          <rect x="206" y="568" width="166" height="48" rx="6"/><text x="289" y="597" text-anchor="middle">Payment plan</text>
+          <rect x="388" y="568" width="166" height="48" rx="6"/><text x="471" y="597" text-anchor="middle">Eviction delayed</text>
+          <rect x="570" y="568" width="166" height="48" rx="6"/><text x="653" y="597" text-anchor="middle">Standard eviction order</text>
+        </svg>
+      </div>
+      <p class="src">Many cases end earlier, by consent after mediation. A standard order can still be voided by paying the full amount before the sheriff enforces it (s. 74(11), once per tenancy).</p>
+    </div>
+
+    <div class="sub">
+      <p class="ep">What the orders say helps</p>
+      <h3 class="ch">Members keep asking tenants for the same three things.</h3>
+      <div class="quotes" id="ltb-quotes"></div>
+    </div>
+
+    <div class="two sub">
+      <div>
+        <p class="ep">The filers list</p>
+        <h3 class="ch">Who brings the most eviction applications.</h3>
+        <p class="dek">A public list in the spirit of Ontario's Sunshine List: organisations that file the most applications at the Board, by type and outcome.</p>
+        <dl style="margin-top:20px">
+          <dt>Named</dt><dd>Corporate landlords, REITs, housing providers and public bodies with 25 or more applications decided.</dd>
+          <dt>Counted only</dt><dd>Representatives: number of appearances by application type, no win rates.</dd>
+          <dt>Never named</dt><dd>Tenants and individual landlords, even though orders print their names.</dd>
+          <dt>Wording</dt><dd>"Applications decided", not "evictions": many orders let the tenant keep the home by paying.</dd>
+        </dl>
+      </div>
+      <div>
+        <table class="fl"><thead><tr><th>Landlord <span class="pill">sample</span></th><th style="text-align:right">L1 orders, 31 Jul 2026</th></tr></thead><tbody id="ltb-filers"></tbody></table>
+        <p class="src">Preview from the same 50 orders, to show the layout. Two orders each is not a ranking: the real list waits for the full run.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band view" id="tools">
+  <div class="wrap">
+    <div class="sh"><h2>Tools</h2><p>Free, open-source tools for applications and interviews.</p><span class="ct">2 tools · updated 24 Nov 2026</span></div>
+    <div class="card">
+      <div class="mihead">
+        <div class="iv" aria-hidden="true"><svg viewBox="16 18 88 88" aria-hidden="true" focusable="false">
+  <defs><clipPath id="rivc"><circle cx="60" cy="60" r="58"/></clipPath></defs>
+  <g clip-path="url(#rivc)">
+    <rect width="120" height="120" class="iv-bg"/>
+    <path d="M14 124 C16 96 34 84 60 84 C86 84 104 96 106 124 Z" class="iv-coat"/>
+    <path d="M60 84 L49 86 L60 112 L71 86 Z" class="iv-shirt"/>
+    <path d="M60 92 L56 98 L60 113 L64 98 Z" class="iv-tie"/>
+    <path d="M30 124 C31 104 40 94 52 89 L60 112 Z" class="iv-lapel"/>
+    <rect x="52" y="68" width="16" height="18" rx="6" class="iv-skin-shade"/>
+    <g class="iv-head">
+      <ellipse cx="60" cy="52" rx="21" ry="24" class="iv-skin"/>
+      <path d="M60 28 C46 28 38 36 38 50 C38 52 39 55 40 56 C41 46 46 40 56 39 C64 38 74 40 80 47 C81 50 82 53 81 56 C83 52 83 48 82 44 C79 33 71 28 60 28 Z" class="iv-hair"/>
+      <path d="M40 56 C39 60 40 63 42 64 L41 54 Z M80 56 C81 60 80 63 78 64 L79 54 Z" class="iv-skin-shade"/>
+      <g class="iv-eyes"><circle cx="52" cy="54" r="2.2" class="iv-ink"/><circle cx="68" cy="54" r="2.2" class="iv-ink"/></g>
+      <g class="iv-glasses" fill="none"><rect x="44" y="48" width="15" height="12" rx="4"/><rect x="61" y="48" width="15" height="12" rx="4"/><path d="M59 53 L61 53"/></g>
+      <path d="M48 45 L56 44 M64 44 L72 45" class="iv-brow"/>
+      <path d="M60 58 L58 64 L61 64" fill="none" class="iv-nose"/>
+      <g class="iv-mouth"><path d="M54 69 Q60 72 66 69" class="iv-lips" fill="none"/><ellipse cx="60" cy="70" rx="4" ry="2.6" class="iv-open"/></g>
+    </g>
+  </g>
+</svg></div>
+        <div>
+          <span class="tag">Free · open source · MIT licence · v1.1.0</span>
+          <h3 class="ch" style="margin-top:6px">Mock Interviewer</h3>
+          <p class="dek" style="margin-top:6px">A three-step interview-prep method any AI can follow, and a one-file practice room with an interviewer who asks, listens and follows up.</p>
+        </div>
+      </div>
+      <ol class="steps">
+        <li><b>Research the role</b><span>What the firm does, who interviews, what they test for.</span></li>
+        <li><b>Know yourself</b><span>Turn your résumé into stories that answer their questions.</span></li>
+        <li><b>Rehearse</b><span>One question at a time against a real clock, then a debrief that sets what you prepared beside what you said.</span></li>
+      </ol>
+      <p class="h4" style="margin-top:26px">Works with the AI you already use</p>
+      <table class="ways stack">
+        <thead><tr><th>Your AI</th><th>Use</th><th>Set-up</th></tr></thead>
+        <tbody>
+          <tr><td data-l="Your AI">ChatGPT, Gemini, Claude, DeepSeek, Kimi, Qwen, Doubao, any chat</td><td data-l="Use">One file to paste in</td><td data-l="Set-up">None</td></tr>
+          <tr><td data-l="Your AI">Claude Code, Codex, Gemini CLI, Copilot, Cursor and other agents</td><td data-l="Use">Agent Skill</td><td data-l="Set-up">One command</td></tr>
+          <tr><td data-l="Your AI">Any MCP client: Claude Desktop, Cursor, Codex, VS Code…</td><td data-l="Use">MCP server</td><td data-l="Set-up">A few lines of config</td></tr>
+        </tbody>
+      </table>
+      <p class="src" style="margin-top:14px">In the practice room, connecting an AI is optional: bring your own key for live follow-ups and marking, or leave it off and nothing leaves your computer. Recordings are never sent.</p>
+      <div class="btns">
+        <a class="btn" href="https://github.com/Frikasong/mock-interviewer">Get it on GitHub</a>
+        <a class="btn ghost2" href="https://github.com/Frikasong/mock-interviewer/blob/main/portable/interview-prep.md">One-file version</a>
+        <a class="btn ghost2" href="https://github.com/Frikasong/mock-interviewer/blob/main/portable/interview-prep-zh.md">中文单文件版</a>
+      </div>
+    </div>
+    <div class="card" style="margin-top:24px">
+      <span class="tag">Free · open source · v2.2 · for tenants at the LTB</span>
+      <h3 class="ch" style="margin-top:6px">Housekeeper</h3>
+      <p class="dek" style="margin-top:6px">Builds a hearing-ready evidence brief: title page, table of contents, numbered tabs and pages. Version 2.2 adds a checklist drawn from real LTB orders, a payment-plan builder, section 82 and 83 pages, and a search for similar orders.</p>
+      <ol class="steps">
+        <li><b>Know what matters</b><span>What the Board decides in your type of case, with real orders.</span></li>
+        <li><b>Prepare</b><span>Repair issues, a payment plan, your circumstances, each as its own page.</span></li>
+        <li><b>Assemble</b><span>Upload photos and documents; get one numbered PDF.</span></li>
+      </ol>
+      <div class="btns"><a class="btn" href="https://github.com/Frikasong/Housekeeper">Get it on GitHub</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="band view" id="method">
+  <div class="wrap">
+  <div class="sh"><h2>Method</h2><p>Every number has a source. We say when a figure is converted or estimated.</p><span class="ct">Updated Nov 2026</span></div>
+  <div class="two">
+    <dl>
+      <dt>Pay data</dt><dd>Job Bank (NOC 41101), NALP Canada 2025 salary survey, Precedent 2026, Cravath, The Globe and Mail.</dd>
+      <dt>Recruiting</dt><dd>Ultra Vires recruit surveys (employer-reported, so counts are minimums), Law Society of Ontario.</dd>
+      <dt>Costs</dt><dd>Law school tuition pages, Law Society of Ontario fee schedule, CMHC 2025 rental market report.</dd>
+      <dt>LTB orders</dt><dd>A2AJ Canadian Legal Data (York University), which republishes LTB orders from the Ontario Data Catalogue under the Open Government Licence – Ontario. Fields are read from order text by rule; the code is in the Housekeeper repository.</dd>
+      <dt>Citations</dt><dd>A2AJ's citation index, which lists the decisions in its collection that cite a given decision. Why each one cites it is read by hand from the passage around the citation.</dd>
+      <dt>Conversions</dt><dd>1 USD = 1.40 CAD (26 Oct 2026). Hourly to annual at 2,080 hours.</dd>
+      <dt>Not advice</dt><dd>This is general information about the legal profession, not legal advice.</dd>
+    </dl>
+    <p class="dek" style="margin:0">Spotted a wrong number or a better source? Tell us and we will fix it in the open.</p>
+  </div>
+  </div>
+</section>
+<section class="band view" id="log">
+  <div class="wrap">
+    <div class="sh"><h2>Log</h2><p>JuSpecula is built in the open. What changed, newest first.</p><span class="ct">Updated 27 Nov 2026</span></div>
+    <ol class="lg" id="lg"></ol>
+  </div>
+</section>
+</main>
+
+<footer class="band">
+  <div class="wrap">JuSpecula (yoo-SPEK-yoo-la, Latin for “the law’s lookout”) is made by Fukun Yang (香复记 · itsfragrantland), JD candidate at Osgoode Hall Law School. <a href="https://github.com/Frikasong">GitHub</a></div>
+</footer>
+
+<script src="data.js"></script>
+<script>
+{
+  const D=window.RATIO;
+  const prov=D.prov;
+  const max=Math.max(...prov.map(p=>p[1]));
+  document.getElementById('prov').innerHTML=prov.map(([n,v])=>`<div class="row${n==='Alberta'||n==='Canada'?' hi':''}"><span>${n}</span><div class="bar" style="width:${(v/max*100).toFixed(1)}%"></div><span class="v">$${v.toFixed(2)}</span></div>`).join('');
+
+  const rows=D.pay;
+  const s=document.createElementNS('http://www.w3.org/2000/svg','svg');
+  const box=document.getElementById('dumb');box.appendChild(s);
+  const k=v=>'$'+Math.round(v/1000)+'K';
+  const draw=()=>{
+    const W=s.clientWidth,H=s.clientHeight,narrow=W<520;
+    const L=narrow?12:120,R=narrow?40:56,T=narrow?40:30,B=36,max=600000;
+    const x=v=>L+(W-L-R)*v/max;
+    const step=(H-T-B)/rows.length;
+    let g='';
+    const ticks=narrow?[0,200000,400000,600000]:[0,100000,200000,300000,400000,500000,600000];
+    ticks.forEach(t=>{g+=`<line x1="${x(t)}" x2="${x(t)}" y1="${T-10}" y2="${H-B}" stroke="var(--line)"/><text x="${x(t)}" y="${H-B+22}" text-anchor="middle" style="fill:var(--mute)">${k(t)}</text>`});
+    rows.forEach((r,i)=>{
+      const y=T+step*(i+.5);
+      g+=narrow?`<text x="${L}" y="${y-26}" style="font-weight:600">${r.n}</text>`:`<text x="${L-16}" y="${y+5}" text-anchor="end" style="font-weight:600">${r.n}</text>`;
+      g+=`<line x1="${x(r.a)}" x2="${x(r.b)}" y1="${y}" y2="${y}" stroke="var(--blue)" stroke-width="6" stroke-opacity=".35" stroke-linecap="round"/>`;
+      g+=`<circle class="dot" cx="${x(r.a)}" cy="${y}" r="10" fill="var(--grey)"/><circle class="dot" cx="${x(r.b)}" cy="${y}" r="10" fill="var(--blue)"/>`;
+      g+=`<text x="${x(r.a)}" y="${y+30}" text-anchor="middle">${k(r.a)}</text><text x="${x(r.b)}" y="${y+30}" text-anchor="middle" style="font-weight:600">${k(r.b)}</text>`;
+      if(!narrow)g+=`<text x="${x(r.a)}" y="${y-18}" text-anchor="middle" style="fill:var(--mute);font-size:13px">${r.al}</text><text x="${x(r.b)}" y="${y-18}" text-anchor="middle" style="fill:var(--mute);font-size:13px">${r.bl}</text>`;
+    });
+    const y0=T+step*.5,y1=T+step*1.5;
+    g+=`<line x1="${x(275000)}" x2="${x(275000)}" y1="${y0+12}" y2="${y1-12}" stroke="var(--ink)" stroke-dasharray="3 4"/>`;
+    s.innerHTML=g;
+  };
+  new ResizeObserver(draw).observe(box);
+
+
+  const law=D.law;
+  const yrs=[2021,2022,2023,2024,2025];
+  const q=document.getElementById('lq'),sel=document.getElementById('la'),ll=document.getElementById('ll'),pf=document.getElementById('prof');
+  const areas=[...new Set(law.flatMap(l=>l.ar.map(a=>a[0])))].sort();
+  sel.innerHTML+=areas.map(a=>`<option>${a}</option>`).join('');
+  let pick=0;
+  const tot=l=>l.y.reduce((a,b)=>a+b,0);
+  const prof=i=>{
+    const l=law[i];if(!l){pf.innerHTML='<p class="dek" style="margin:0">No lawyer matches. Try another name or area.</p>';return}
+    const my=Math.max(...l.y),ma=l.ar[0][1];
+    pf.innerHTML=`<div class="ph"><div><h3 class="ch">${l.n}</h3><p>${l.f} · ${l.c}</p></div><div style="text-align:right"><div class="big">${tot(l)}</div><span class="src" style="margin:0">decisions as counsel, 2021–2025</span></div></div>
+    <div class="pg"><div><p class="h4">Decisions per year</p><div class="yr">${l.y.map(v=>`<div>${v}<i style="height:${v/my*80}%"></i></div>`).join('')}</div><div class="yl">${yrs.map(y=>`<span>${String(y).slice(2)}</span>`).join('')}</div></div>
+    <div><p class="h4">Top areas of law</p><div class="rows">${l.ar.map((a,k)=>`<div class="row${k?'':' hi'}"><span>${a[0]}</span><div class="bar" style="width:${a[1]/ma*100}%"></div><span class="v">${a[1]}</span></div>`).join('')}</div><p class="src">Courts: ${l.ct}</p></div></div>
+    <p class="h4" style="margin-top:22px">Recent decisions</p><ul class="rec" style="margin-top:0">${l.r.map(r=>`<li>${r[0]}<span>${r[1]}</span></li>`).join('')}</ul>`;
+  };
+  const list=()=>{
+    const t=q.value.trim().toLowerCase(),a=sel.value;
+    const hits=law.map((l,i)=>i).filter(i=>{const l=law[i];return(!t||(l.n+' '+l.f).toLowerCase().includes(t))&&(!a||l.ar.some(x=>x[0]===a))});
+    if(!hits.includes(pick))pick=hits.length?hits[0]:-1;
+    ll.innerHTML=hits.length?hits.map(i=>`<li><button type="button" data-i="${i}" aria-pressed="${i===pick}"><b>${law[i].n}</b><span>${law[i].f} · ${tot(law[i])} decisions</span></button></li>`).join(''):'<li class="none">No matches</li>';
+    prof(pick);
+  };
+  ll.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;pick=+b.dataset.i;list()});
+  q.addEventListener('input',list);sel.addEventListener('change',list);
+  list();
+
+
+  const pct=(a,b)=>a/b*100;
+  const sc=D.schools.map(([n,a,b])=>[n,pct(a,b)]);
+  const ta=D.schools.reduce((s,x)=>s+x[1],0),tb=D.schools.reduce((s,x)=>s+x[2],0);
+  sc.push(["Nine schools",pct(ta,tb)]);
+  const smax=Math.max(...sc.map(x=>x[1]));
+  document.getElementById('schools').innerHTML=sc.map(([n,v])=>`<div class="row${n==='Nine schools'?' hi':''}"><span>${n}</span><div class="bar" style="width:${(v/smax*100).toFixed(1)}%"></div><span class="v">${v.toFixed(1)}%</span></div>`).join('');
+  const omax=Math.max(...D.oneL.map(x=>x[1]));
+  document.getElementById('onel').innerHTML=D.oneL.map(([y,v])=>`<div class="${y<2022?'g':''}">${v}<i style="height:${(v/omax*82).toFixed(1)}%"></i></div>`).join('');
+  document.getElementById('onely').innerHTML=D.oneL.map(([y])=>`<span>${String(y).slice(2)}</span>`).join('');
+  const tmax=Math.max(...D.tuition.map(x=>x[2])),money=v=>'$'+v.toLocaleString('en-CA');
+  document.getElementById('tuition').innerHTML=D.tuition.map(([n,d,i])=>`<div class="row w"><span>${n}</span><div class="bar" style="width:${(d/tmax*100).toFixed(1)}%"></div><span class="v">${money(d)}</span></div><div class="row w b pair"><span></span><div class="bar" style="width:${(i/tmax*100).toFixed(1)}%"></div><span class="v">${money(i)}</span></div>`).join('');
+  const L=D.ltb;
+  document.getElementById('ltb-total').textContent=L.total.toLocaleString('en-CA');
+  document.getElementById('ltb-figs').innerHTML=L.figs.map(([v,t])=>`<div><b>${v}</b><span>${t}</span></div>`).join('');
+  document.getElementById('ltb-quotes').innerHTML=L.quotes.map(q=>`<div class="quote"><b>${q.h}</b><blockquote>“${q.q}”</blockquote><a href="${q.u}">${q.f} · ${q.d}</a></div>`).join('');
+  document.getElementById('ltb-filers').innerHTML=L.filers.map(([n,c])=>`<tr><td>${n}</td><td class="n">${c}</td></tr>`).join('');
+  document.getElementById('lg').innerHTML=D.log.map(([d,t])=>`<li><time>${d}</time><span>${t}</span></li>`).join('');
+
+  // Cases: Zhang v. Chen citation map
+  const esc=v=>String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const ZC=D.zc,ZB=D.zcBodies,MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const fmt=d=>{const[y,m,dd]=d.split('-');return `${+dd} ${MON[+m-1]} ${y}`};
+  const bodyName=k=>(ZB.find(b=>b[0]===k)||[k,k])[1];
+  const ai=ZC.filter(r=>r[5]),outBC=ai.filter(r=>!/^BC/.test(r[1])).length;
+  const tm=ai.filter(r=>r[1]==='TMOB').length;
+  document.getElementById('zc-figs').innerHTML=[[ai.length,'decisions cite it on fabricated or AI-generated authorities'],[outBC,'of them are outside British Columbia'],[tm,'from the Trademarks Opposition Board, the most of any body'],['Aug 2024','first citation, six months after the ruling']].map(([v,t])=>`<div><b>${esc(v)}</b><span>${esc(t)}</span></div>`).join('');
+  document.getElementById('zc-list').innerHTML=ZC.map(r=>`<tr><td class="d">${fmt(r[0])}</td><td>${esc(bodyName(r[1]))}</td><td><a href="${esc(r[4])}">${esc(r[2])}</a>${r[5]?'':' <span class="pill">not about AI</span>'}</td><td class="c">${esc(r[3])}</td></tr>`).join('');
+  const zs=document.createElementNS('http://www.w3.org/2000/svg','svg');
+  const zbox=document.getElementById('zc');zbox.appendChild(zs);
+  const t0=Date.parse('2024-01-01'),t1=Date.parse('2027-01-01'),origin=Date.parse('2024-02-20');
+  const drawZC=()=>{
+    const W=zs.clientWidth,H=zs.clientHeight,narrow=W<520;
+    const L=narrow?12:W<900?160:272,R=narrow?28:40,T=narrow?56:48,B=34,r=narrow?6:7;
+    const x=t=>L+(W-L-R)*(t-t0)/(t1-t0);
+    const step=(H-T-B)/ZB.length;
+    let g='';
+    [2024,2025,2026,2027].forEach(y=>{const xx=x(Date.parse(y+'-01-01'));g+=`<line x1="${xx}" x2="${xx}" y1="${T-8}" y2="${H-B}" stroke="var(--line)"/>`;if(y<2027)g+=`<text x="${x(Date.parse(y+'-07-01'))}" y="${H-B+22}" text-anchor="middle" style="fill:var(--mute)">${y}</text>`});
+    const ox=x(origin);
+    g+=`<line x1="${ox}" x2="${ox}" y1="${T-20}" y2="${H-B}" stroke="var(--ink)" stroke-dasharray="3 4"/>`;
+    g+=`<text x="${ox+6}" y="${T-26}" style="font-weight:600">${narrow?'Ruling, Feb 2024':'Zhang v. Chen, 20 Feb 2024'}</text>`;
+    ZB.forEach(([k,full,short],i)=>{
+      const y=T+step*(i+.5),rows=ZC.filter(z=>z[1]===k),n=rows.filter(z=>z[5]).length;
+      g+=`<line x1="${L}" x2="${W-R}" y1="${y}" y2="${y}" stroke="var(--line)"/>`;
+      g+=narrow?`<text x="${L}" y="${y-3*r-10}" style="font-weight:600;font-size:13px">${esc(short)}</text>`:`<text x="${L-14}" y="${y+5}" text-anchor="end" style="font-weight:600">${esc(W<900?short:full)}</text>`;
+      g+=`<text x="${W-R+10}" y="${y+5}" style="fill:var(--mute);font-variant-numeric:tabular-nums">${rows.length}</text>`;
+      const placed=[];
+      rows.forEach(z=>{
+        const cx=x(Date.parse(z[0]));let dy=0;
+        for(const o of [0,-1,1,-2,2]){dy=o*(2*r+1);if(!placed.some(p=>Math.hypot(p[0]-cx,p[1]-dy)<2*r+1))break}
+        placed.push([cx,dy]);
+        g+=`<a href="${esc(z[4])}" aria-label="${esc(z[2]+', '+z[3]+', '+fmt(z[0]))}"><circle cx="${cx}" cy="${y+dy}" r="${r}" fill="${z[5]?'var(--blue)':'var(--grey)'}" stroke="var(--bg)" stroke-width="1.5"><title>${esc(z[2]+' · '+z[3]+' · '+fmt(z[0]))}</title></circle></a>`;
+      });
+    });
+    zs.innerHTML=g;
+  };
+  const zro=new ResizeObserver(drawZC);zro.observe(zbox);
+
+  const links=[...document.querySelectorAll('nav a.l')];
+  const views=[...document.querySelectorAll('.view')];
+  const route=()=>{
+    const id=(location.hash||'#home').slice(1);
+    const cur=views.some(v=>v.id===id)?id:'home';
+    views.forEach(v=>v.hidden=v.id!==cur);
+    links.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+cur));
+    window.scrollTo(0,0);
+  };
+  window.addEventListener('hashchange',route);
+  route();
+}
+</script>
+</body>
+</html>
