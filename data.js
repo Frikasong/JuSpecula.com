@@ -61,7 +61,36 @@ window.RATIO={
     ["2026-09-28","FC","Ahmed v. Canada","2026 FC 1202","https://decisions.fct-cf.gc.ca/fc-cf/decisions/en/item/531515/index.do",1]
   ],
   zcBodies:[["TMOB","Trademarks Opposition Board","Trademarks Board"],["FC","Federal Court","Federal Court"],["BCSC","BC Supreme Court","BC Supreme Ct"],["BCCA","BC Court of Appeal","BC Appeal"],["FPSLREB","Federal Public Sector Labour Board","Fed. labour board"],["CIRB","Canada Industrial Relations Board","CIRB"],["ONLSTH","Law Society Tribunal (Ontario)","Law Society Trib."],["ONLTB","Landlord and Tenant Board (Ontario)","LTB"]],
+  // Newsletter: Buttondown username. Leave "" until the account exists; forms show "opens soon".
+  newsletter:"",
+  // Chinese labels for the /zh/ page. English data above stays the source of truth.
+  zh:{
+    prov:{"Alberta":"阿尔伯塔","NL":"纽芬兰","Ontario":"安大略","BC":"卑诗","New Brunswick":"新不伦瑞克","Canada":"加拿大全国","Saskatchewan":"萨斯喀彻温","PEI":"爱德华王子岛","Nova Scotia":"新斯科舍","Quebec":"魁北克","Manitoba":"曼尼托巴"},
+    pay:{"Bay Street":"湾街","New York":"纽约","Year 1":"第1年","Year 7":"第7年","Top of scale":"最高年级"},
+    schools:{"U of T":"多伦多大学","Western":"西安大略","Osgoode":"奥斯古德","Queen's":"女王大学","Ottawa":"渥太华大学","Dalhousie":"达尔豪斯","Windsor":"温莎大学","TMU":"都会大学","McGill":"麦吉尔","Calgary":"卡尔加里","UBC":"UBC"},
+    areas:{"Commercial litigation":"商事诉讼","Insolvency":"破产重组","Contracts":"合同","Employment":"劳动雇佣","Human rights":"人权","Judicial review":"司法审查","Immigration":"移民","Administrative":"行政法","Tax":"税务"},
+    bodies:{TMOB:["商标异议委员会","商标委员会"],FC:["联邦法院","联邦法院"],BCSC:["卑诗省最高法院","卑诗最高法院"],BCCA:["卑诗省上诉法院","卑诗上诉法院"],FPSLREB:["联邦公共部门劳资委员会","联邦劳资委"],CIRB:["加拿大劳资关系委员会","劳资关系委"],ONLSTH:["安省律师协会审裁处","律协审裁处"],ONLTB:["安省房东与租客委员会","LTB"]},
+    ltbFigs:[["56,186","2025年1月至2026年8月公布的 LTB 裁决"],["33 / 50","样本中由机构提起的欠租案件"],["22 / 50","近期裁决中，租客曾咨询值班律师的案件"]],
+    quoteHeads:["证明还款计划负担得起","维修问题须事先书面提出","按时出席听证"],
+    log:[
+      ["2026年11月27日","上线中文版、企业合作页和邮件订阅；新 logo：J 代表 jus（法），镜片里的 S 代表 specula（瞭望台）。"],
+      ["2026年11月27日","新增 About 页面，可从每页底部的 J logo 进入。"],
+      ["2026年11月27日","Ratio 更名为 JuSpecula，拉丁语意为「法律的瞭望台」：从法律市场数据、判例到法律科技和工具，一站看清法律。"],
+      ["2026年11月26日","判例：根据 A2AJ 引用索引，整理所有援引 Zhang v. Chen 的裁决。26 份中有 25 份因 AI 虚构判例而援引。"],
+      ["2026年11月24日","新增 LTB 板块（真实裁决、样本统计的原型），工具区加入 Housekeeper v2.2。"],
+      ["2026年11月20日","Mock Interviewer 支持任何 AI：可作为 skill、MCP 服务器或单个文件使用，练习室的面试官会追问。"],
+      ["2026年11月20日","Mock Interviewer 改为与本站一致的设计。"],
+      ["2026年11月15日","新增招聘和学费数据、第一张判例卡片和这份日志。"],
+      ["2026年11月14日","网站第一版上线：数据、判例、律师、工具、方法。"],
+      ["2026年11月7日","发布《数说》第 3 期：在加拿大成为律师要花多少钱。"],
+      ["2026年11月2日","发布第 2 期：进大所有多难。"],
+      ["2026年10月29日","发布第 1 期：加拿大律师赚多少，为什么有人去纽约。"],
+      ["2026年10月27日","发布第一篇判例解读：Moffatt v. Air Canada。"],
+      ["2026年10月22日","介绍 Housekeeper：帮没有律师的租客和房东整理证据的工具。"]
+    ]
+  },
   log:[
+    ["27 Nov 2026","Chinese edition, a Business page and email sign-up. New logo: J for jus (law), and an S in the lens for specula (lookout)."],
     ["27 Nov 2026","Added an About page, reached from the J logo at the foot of every page."],
     ["27 Nov 2026","Ratio is now JuSpecula, Latin for the law's lookout: one place to watch the law, from legal market data and cases to legal tech and tools."],
     ["26 Nov 2026","Cases: a map of every decision that has cited Zhang v. Chen, from the A2AJ citation index. 25 of 26 cite it on AI-invented case law."],
