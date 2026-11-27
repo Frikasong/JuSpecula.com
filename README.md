@@ -1,6 +1,6 @@
 # JuSpecula
 
-Canadian law, legal tech and the legal market. *JuSpecula* joins Latin *jus* (law) and *specula* (lookout): the law's lookout. Live at https://juspecula.com
+A lookout on law: legal market data, cases, legal tech and tools. *JuSpecula* joins Latin *jus* (law) and *specula* (lookout): the law's lookout. Live at https://juspecula.com
 
 A static site (no build step): `index.html` + `data.js`. Hosted on GitHub Pages.
 
