@@ -62,6 +62,7 @@ window.RATIO={
   ],
   zcBodies:[["TMOB","Trademarks Opposition Board","Trademarks Board"],["FC","Federal Court","Federal Court"],["BCSC","BC Supreme Court","BC Supreme Ct"],["BCCA","BC Court of Appeal","BC Appeal"],["FPSLREB","Federal Public Sector Labour Board","Fed. labour board"],["CIRB","Canada Industrial Relations Board","CIRB"],["ONLSTH","Law Society Tribunal (Ontario)","Law Society Trib."],["ONLTB","Landlord and Tenant Board (Ontario)","LTB"]],
   log:[
+    ["27 Nov 2026","Added an About page, reached from the J logo at the foot of every page."],
     ["27 Nov 2026","Ratio is now JuSpecula, Latin for the law's lookout: one place to watch the law, from legal market data and cases to legal tech and tools."],
     ["26 Nov 2026","Cases: a map of every decision that has cited Zhang v. Chen, from the A2AJ citation index. 25 of 26 cite it on AI-invented case law."],
     ["24 Nov 2026","Added the LTB section (prototype with real orders and sample counts) and Housekeeper v2.2 to Tools."],

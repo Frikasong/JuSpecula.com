@@ -74,6 +74,14 @@ dl{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:8px 20px;mar
 dt{font-weight:600}
 dd{margin:0;color:var(--mute)}
 footer{border-top:1px solid var(--line);font-size:14px;color:var(--mute)}
+.fwrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.flogo{display:inline-flex;align-items:center;gap:10px;color:var(--ink);text-decoration:none;font-weight:600;min-height:44px}
+.flogo svg{width:36px;height:36px;display:block;border-radius:7px}
+.flogo:hover span,.flogo:focus-visible span{color:var(--blue)}
+.flogo:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.about{max-width:760px}
+.about p{margin:0 0 16px}
+.about .lede{margin-bottom:28px}
 nav{position:sticky;top:0;z-index:5;background:var(--bg)}
 nav a.l{border-bottom:2px solid transparent}
 nav a.l.on{color:var(--blue);border-bottom-color:var(--blue)}
@@ -507,6 +515,21 @@ td.d{white-space:nowrap;font-variant-numeric:tabular-nums;color:var(--mute)}
   </div>
   </div>
 </section>
+<section class="band view" id="about">
+  <div class="wrap about">
+    <div class="sh"><h2>About</h2><p>What JuSpecula is, and who makes it.</p><span class="ct">JuSpecula</span></div>
+    <p class="lede">JuSpecula joins two Latin words: <b>jus</b>, law, and <b>specula</b>, a lookout.</p>
+    <p>It is a place to watch the law from a little higher up: what the legal market pays and hires, how cases are decided and cited, what legal technology is changing, and free tools that help people deal with it.</p>
+    <dl style="margin:28px 0">
+      <dt>Data</dt><dd>Every number has a source, and we say when a figure is converted or estimated. See Method.</dd>
+      <dt>Cases</dt><dd>Decisions explained in plain language, with the citation and what the ruling actually held.</dd>
+      <dt>Tools</dt><dd>Free and open source, built for students, applicants and self-represented people.</dd>
+      <dt>Not advice</dt><dd>JuSpecula is general information about law and the legal profession, not legal advice.</dd>
+    </dl>
+    <p>JuSpecula is made by Fukun Yang, a JD candidate at Osgoode Hall Law School who has worked across civil and common law systems. She also writes about law and legal tech in Chinese as 香复记 (itsfragrantland) on Xiaohongshu.</p>
+    <p>Spotted a wrong number, or want to suggest a source or a tool? Get in touch on <a href="https://github.com/Frikasong">GitHub</a>.</p>
+  </div>
+</section>
 <section class="band view" id="log">
   <div class="wrap">
     <div class="sh"><h2>Log</h2><p>JuSpecula is built in the open. What changed, newest first.</p><span class="ct">Updated 27 Nov 2026</span></div>
@@ -516,7 +539,7 @@ td.d{white-space:nowrap;font-variant-numeric:tabular-nums;color:var(--mute)}
 </main>
 
 <footer class="band">
-  <div class="wrap">Made by Fukun Yang. <a href="https://github.com/Frikasong">GitHub</a></div>
+  <div class="wrap fwrap"><a class="flogo" href="#about" aria-label="About JuSpecula"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="6" fill="#1d2bd8"/><text x="16" y="23" font-family="Georgia,serif" font-weight="700" font-size="20" text-anchor="middle" style="fill:#fff;stroke:none;font:700 20px Georgia,serif">J</text></svg><span>About</span></a><a href="https://github.com/Frikasong">GitHub</a></div>
 </footer>
 
 <script src="data.js"></script>
