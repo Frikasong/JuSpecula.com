@@ -73,7 +73,7 @@ window.RATIO={
     ltbFigs:[["56,186","2025年1月至2026年8月公布的 LTB 裁决"],["33 / 50","样本中由机构提起的欠租案件"],["22 / 50","近期裁决中，租客曾咨询值班律师的案件"]],
     quoteHeads:["证明还款计划负担得起","维修问题须事先书面提出","按时出席听证"],
     log:[
-      ["2026年11月27日","上线中文版、企业合作页和邮件订阅；新 logo：J 代表 jus（法），镜片里的 S 代表 specula（瞭望台）。"],
+      ["2026年11月27日","上线中文版、企业合作页和邮件订阅。"],
       ["2026年11月27日","新增 About 页面，可从每页底部的 J logo 进入。"],
       ["2026年11月27日","Ratio 更名为 JuSpecula，拉丁语意为「法律的瞭望台」：从法律市场数据、判例到法律科技和工具，一站看清法律。"],
       ["2026年11月26日","判例：根据 A2AJ 引用索引，整理所有援引 Zhang v. Chen 的裁决。26 份中有 25 份因 AI 虚构判例而援引。"],
@@ -90,7 +90,7 @@ window.RATIO={
     ]
   },
   log:[
-    ["27 Nov 2026","Chinese edition, a Business page and email sign-up. New logo: J for jus (law), and an S in the lens for specula (lookout)."],
+    ["27 Nov 2026","Chinese edition, a Business page and email sign-up."],
     ["27 Nov 2026","Added an About page, reached from the J logo at the foot of every page."],
     ["27 Nov 2026","Ratio is now JuSpecula, Latin for the law's lookout: one place to watch the law, from legal market data and cases to legal tech and tools."],
     ["26 Nov 2026","Cases: a map of every decision that has cited Zhang v. Chen, from the A2AJ citation index. 25 of 26 cite it on AI-invented case law."],
